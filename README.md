@@ -2,7 +2,7 @@
 
 The gradient background from Facebook Accounts Center.
 
-This repo extracts the HTML code and CSS values of the background with some minor tweaks.
+This repo contains the HTML code and CSS values of the background with some minor tweaks.
 
 There are two versions for this theme: Static (non-animated) and Animated. The animated background code is already implemented, however it seems to be unused due to missing the ``animation-duration`` property. Feel free to experiment any animations that suit your style.
 
