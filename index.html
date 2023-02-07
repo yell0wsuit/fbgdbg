@@ -10,7 +10,7 @@
     </head>
     <body>
         <!-- Anything: start -->
-        <nav class="mb-4 navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="mb-2 navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">fbgdbg</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,19 +77,16 @@
                 </div>
             </div>
         </nav>
-        <div class="container p-5 my-5 mb-5 thisiswhereyourcontentlives">
+        <div class="container px-5 my-5 mb-5 thisiswhereyourcontentlives">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                     <p class="text-center">
                         Testing Facebook gradient background. Made by yell0wsuit. <a href="https://github.com/yell0wsuit/fbgdbg">Find on GitHub</a>.
                     </p>
-                    <div class="alert alert-warning" role="alert">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
-                        </svg>
-                        Note: May cause high GPU usage when zooming--also low-end devices may suffer from using this theme. Use with caution.
-                    </div>
+                    <p class="text-center">Change background's <code>opacity</code> value:</p>
+                    <input type="range" class="form-range mb-2" id="customRange1" value="20" onchange="changeOpacity(this);">
+                    <p class="text-center">Current value: <span id="rangevaluetext">0.2</span></p>
+                    <div class="mb-4 text-center"><a href="javascript:void(0);" id="playAnimationLink">Play animation</a></div>
                     <h1 class="text-center">Lorem Ipsum</h1>
                     <figure class="text-center">
                         <blockquote class="blockquote">
@@ -102,6 +99,8 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique ut metus vitae semper. Suspendisse sed elementum risus. Integer semper imperdiet metus a iaculis. Quisque venenatis fermentum condimentum. Suspendisse convallis et diam id semper. Etiam semper, purus non aliquam maximus, leo elit maximus arcu, ac semper mauris lectus a risus. Nulla at eros sit amet diam viverra vehicula non quis sem. Nam lacus libero, auctor eu lectus id, volutpat blandit felis. Ut sollicitudin in velit sed tristique. Nullam vel euismod nisl, non mollis ipsum.</p>
                     <p>Nullam sit amet sapien ornare, eleifend ipsum non, euismod ex. Nam rutrum nisl mollis tortor sagittis rhoncus. Duis quis ultricies quam, nec mattis urna. Donec convallis varius erat ut sagittis. Donec sed ex mollis ante elementum consequat. Proin in est tempus, volutpat nunc id, placerat magna. Nam a cursus libero. Donec vehicula laoreet sodales. Nam rutrum volutpat varius. Sed hendrerit hendrerit erat nec blandit. Morbi blandit at enim a ultricies.</p>
                     <p>OK, that's enough for the sample text Lorem Ipsum. Put any texts or elements above the fbgdbg div (or behind but it will make it hard to read--not gonna stop you though).</p>
+                    <hr />
+                    <h2>Static (non-animated) version</h2>
                     <p>Take a look at the lines that are responsible for the background.</p>
                     <pre><code class="language-html">&lt;div class=&quot;fbgdbg&quot;&gt;
     &lt;div class=&quot;blue-gradient&quot;&gt;&lt;/div&gt;
@@ -112,8 +111,20 @@
     &lt;div class=&quot;purple-gradient&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
                     <p>In the <code>fbgdbg</code> class, the <code>position</code> property needs to be set to <code>fixed</code> to avoid overflowing. You can freely change the <code>opacity</code> property to any value you like, or remove it to let the background be shown fully--but make sure the text contrast ratio is sufficient, otherwise it will become hard to read.</p>
-                    <p>Except for the yellow gradient div, every color's value is left intact. However, the background color is used with the <code>var()</code> function to make the code easier to read.</p>
-                    <p>The yellow gradient's <code>bottom</code> property value is divided by 2 from the original value to have the subtle yellow color (the lower the value, the more it can be seen). Since <code>position</code> is set to <code>fixed</code> you cannot see it. While <code>absolute</code> can see it, there are some side effects, notably the webpage is not responsive to the screen size (overflow like I've mentioned above).</p>
+                    <p>Except for the yellow gradient div, every color's property value is left intact. However, the background color is used with the <code>var()</code> function to make the code easier to read.</p>
+                    <p>The yellow gradient's <code>bottom</code> property value is divided by 2 from the original value to have the subtle yellow color (the lower the value, the more it can be seen). Since <code>position</code> is set to <code>fixed</code> you cannot see it. While <code>absolute</code> can see it, there are some side effects, notably the webpage becomes "overflowed".</p>
+                    <hr />
+                    <h2>Animated version</h2>
+                    <p>While the code for the animated background version is implemented in FB Accounts Center, it seems to be unused (due to missing the <code>animation-duration</code> property). If you want the background to gradually change color, here is the code:</p>
+                    <pre><code class="language-html">&lt;div class=&quot;fbgdbg&quot;&gt;
+    &lt;div class=&quot;blue-gradient&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;green-gradient green-gradient-animation&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;yellow-gradient&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;red-gradient&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;blue-gradient-bottom blue-gradient-bottom-animation&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;purple-gradient purple-gradient-animation&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    <p>Feel free to experiment different animations that suit your style.</p>
                 </div>
             </div>
         </div>
@@ -144,7 +155,38 @@
             <div class="purple-gradient"></div>
         </div>
         <!-- Fbgdbg -->
-        
+
+        <!-- Optional scripts -->
+
+        <script>
+            function changeOpacity() {
+                let e = document.getElementById("customRange1").value / 100;
+                document.getElementsByClassName("fbgdbg")[0].style.opacity = e;
+                document.getElementById('rangevaluetext').innerText = e;
+            }
+        </script>
+
+        <script>
+            let a = document.getElementsByClassName("green-gradient"),
+                b = document.getElementsByClassName("blue-gradient-bottom"),
+                c = document.getElementsByClassName("purple-gradient"),
+                changeThis = document.getElementById("playAnimationLink");
+            changeThis.onclick = addAnimationPls;
+            function addAnimationPls() {
+                a[0].classList.add("green-gradient-animation");
+                b[0].classList.add("blue-gradient-bottom-animation");
+                c[0].classList.add("purple-gradient-animation");
+                if (changeThis.innerText === 'Play animation') {
+                    changeThis.innerText = 'Stop animation';
+                } else {
+                    changeThis.innerText = 'Play animation';
+                    a[0].classList.remove("green-gradient-animation");
+                    b[0].classList.remove("blue-gradient-bottom-animation");
+                    c[0].classList.remove("purple-gradient-animation")
+                }
+            };
+        </script>
+
         <script>
             /*!
              * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
