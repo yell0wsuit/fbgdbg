@@ -1,0 +1,97 @@
+/* Just for the icon in the navbar. */
+
+.bi-nav {
+    fill: currentcolor;
+    height: 1em;
+    width: 1em;
+}
+
+.active .bi-nav {
+    display: block!important;
+}
+
+/* Start of the fbgdbg div. Be careful when touching the value--they are delicate! */
+
+:root {
+  --blue-grad: radial-gradient(50% 50% at 50% 50%, rgba(24, 119, 242, .3) 0, rgba(24, 119, 242, 0) 50%), radial-gradient(50% 50% at 50% 50%, rgba(24, 119, 242, .5) 0, rgba(24, 119, 242, 0) 75%), radial-gradient(50% 50% at 50% 50%, rgba(24, 119, 242, .8) 0, rgba(24, 119, 242, 0) 100%);
+  --green-grad: radial-gradient(50% 50% at 50% 50%, rgba(37, 211, 102, .3) 0, rgba(37, 211, 102, 0) 50%), radial-gradient(50% 50% at 50% 50%, rgba(37, 211, 102, .5) 0, rgba(37, 211, 102, 0) 75%), radial-gradient(50% 50% at 50% 50%, rgba(37, 211, 102, .8) 0, rgba(37, 211, 102, 0) 100%);
+  --yellow-grad: radial-gradient(50% 50% at 50% 50%, rgba(245, 206, 51, .3) 0, rgba(245, 206, 51, 0) 50%), radial-gradient(50% 50% at 50% 50%, rgba(245, 206, 51, .5) 0, rgba(245, 206, 51, 0) 75%), radial-gradient(50% 50% at 50% 50%, rgba(245, 206, 51, .8) 0, rgba(245, 206, 51, 0) 100%);
+  --red-grad: radial-gradient(50% 50% at 50% 50%, rgba(255, 108, 92, .3) 0, rgba(255, 108, 92, 0) 50%), radial-gradient(50% 50% at 50% 50%, rgba(255, 108, 92, .5) 0, rgba(255, 108, 92, 0) 75%), radial-gradient(50% 50% at 50% 50%, rgba(255, 108, 92, .8) 0, rgba(255, 108, 92, 0) 100%);
+  --purple-grad: radial-gradient(50% 50% at 50% 50%, rgba(160, 51, 255, .3) 0, rgba(160, 51, 255, 0) 50%), radial-gradient(50% 50% at 50% 50%, rgba(160, 51, 255, .5) 0, rgba(160, 51, 255, 0) 75%), radial-gradient(50% 50% at 50% 50%, rgba(160, 51, 255, .8) 0, rgba(160, 51, 255, 0) 100%);
+}
+
+.fbgdbg {
+    z-index: -1;
+    width: 100%;
+    /* height: 100%; */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 300%;
+    width: 300%;
+    /* opacity: 0.08; original value */
+    opacity: 0.12; /* Any value you like. Or set to '1',
+       but make sure the text contrast ratio is sufficient. */
+}
+
+.blue-gradient {
+    position: inherit;
+    background-image: var(--blue-grad);
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    top: 26%;
+}
+
+.blue-gradient-bottom {
+    position: inherit;
+    background-image: var(--blue-grad);
+    bottom: 0;
+    left: 0;
+    right: 24.38%;
+    top: 51.52%;
+}
+
+.green-gradient {
+    position: inherit;
+    background-image: var(--green-grad);
+    bottom: 44%;
+    left: 17%;
+    right: 17%;
+    top: 13.7%;
+}
+
+.yellow-gradient {
+    position: inherit;
+    background-image: var(--yellow-grad);
+    /* bottom: 66.41%; original value. */
+       /* Since position is set to 'fixed'
+          you cannot see it. 'absolute' can see it
+          but there are some side effects, notably the
+          webpage is not responsive to the screen size (overflow). */ 
+    bottom: 33.2%;
+       /* divided by 2 to have subtle yellow color.
+          The lower the value, the more it can be seen. */
+    left: 36.88%;
+    right: 19.69%;
+    top: 5.73%;
+}
+
+.red-gradient {
+    position: inherit;
+    background-image: var(--red-grad);
+    bottom: 45.27%;
+    left: 37.78%;
+    right: 4.9%;
+    top: 17.96%;
+}
+
+.purple-gradient {
+    position: inherit;
+    background-image: var(--purple-grad);
+    bottom: 38.4%;
+    left: 45.99%;
+    right: 1.86%;
+    top: 28.59%;
+}
