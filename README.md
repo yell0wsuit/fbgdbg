@@ -1,6 +1,6 @@
 # fbgdbg - Facebook Gradient Background
 
-The gradient background is from Facebook's Accounts Center.
+The gradient background from Facebook's Accounts Center.
 
 This repo aims to reproduce the background with some minor tweaks.
 
